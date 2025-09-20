@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
     private float movement;
-    
+
 
     void Update()
     {
@@ -19,6 +19,10 @@ public class Movement : MonoBehaviour
         {
             movement = Input.GetAxisRaw("Vertical2");
         }
+
+    }
+    void FixedUpdate()
+    {
         rb.linearVelocity = new Vector2(0, movement*speed);
     }
 }
