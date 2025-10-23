@@ -18,6 +18,15 @@ public class End : MonoBehaviour
     }
     public void StartGame()
     {
+        SceneManager.LoadScene("Option");
+    }
+    public void player1()
+    {
+        SceneManager.LoadScene("Computer");
+    }
+    public void player2()
+    {
         SceneManager.LoadScene("Main");
     }
+
 }

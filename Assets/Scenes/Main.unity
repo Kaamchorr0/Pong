@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a164d3df3366514cb7f6eb8fbfe4e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   rb: {fileID: 991353065}
   startpos: {x: 0, y: 1}
 --- !u!1 &1031461448
@@ -2628,7 +2628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlayer1: 0
-  speed: 5
+  speed: 10
   rb: {fileID: 1772438955}
 --- !u!1 &1833107367
 GameObject:
@@ -3033,7 +3033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlayer1: 1
-  speed: 5
+  speed: 10
   rb: {fileID: 2019383901}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

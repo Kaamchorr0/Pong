@@ -12,6 +12,12 @@ public class ScoreManager : MonoBehaviour
     public GameObject WinPanel;
     int p1score = 0;
     int p2score = 0;
+    private int Index;
+    
+    void Awake()
+    {
+        Index = SceneManager.GetActiveScene().buildIndex;
+    }
 
     void Start()
     {
@@ -19,6 +25,7 @@ public class ScoreManager : MonoBehaviour
         WinPanel.SetActive(false);
         scoreText1.text = p1score.ToString();
         scoreText2.text = p2score.ToString();
+        
     }
 
     public void AddScore(int number)
@@ -48,7 +55,23 @@ public class ScoreManager : MonoBehaviour
     }
     void winscreen(int pnumber)
     {
-        WinPanel.SetActive(true);
-        winText.text = "Player " + pnumber + "Wins!";
+        if (Index == 3)
+        {
+            WinPanel.SetActive(true);
+            winText.text = "Player " + pnumber + "Wins!";
+        }
+        else
+        {
+            if (pnumber == 1)
+            {
+                WinPanel.SetActive(true);
+                winText.text = "Computer Won!";
+            }
+            else
+            {
+                WinPanel.SetActive(true);
+                winText.text = "You Won!";
+            }
+        }
     }
 }

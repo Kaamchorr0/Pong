@@ -4,7 +4,7 @@ using UnityEngine;
 public class Movement2 : MonoBehaviour
 {
     public bool IsPlayer1;
-    public float speed;
+    public float speed1;
     public Rigidbody2D rb;
     private float movement;
     private Transform player;
@@ -20,24 +20,27 @@ public class Movement2 : MonoBehaviour
     }
     // 4.7, -2.5, -2
     void Update()
+    {   
+    movement = Input.GetAxisRaw("Vertical2");
+    }
+    void FixedUpdate()
     {
         if (IsPlayer1)
         {
-            if (ball.position.x< 0) {
+            if (ball.position.x < 0)
+            {
                 Vector2 targetpos = new Vector2(rb.position.x, ball.position.y);
-                Vector2 newpos = Vector2.MoveTowards(rb.position, targetpos, speed * Time.deltaTime);
+                Vector2 newpos = Vector2.Lerp(rb.position, targetpos, speed1 * Time.deltaTime);
                 newpos.y = Mathf.Clamp(newpos.y, ybound2, ybound1);
                 rb.MovePosition(newpos);
             }
         }
-            else
-            {
-                movement = Input.GetAxisRaw("Vertical2");
-            }
-
-    }
-    void FixedUpdate()
-    {
-        rb.linearVelocity = new Vector2(0, movement*speed*Time.deltaTime);
+        else
+        {
+            Vector2 newpos = rb.position + new Vector2(0, movement * speed1 * Time.deltaTime);
+            newpos.y = Mathf.Clamp(newpos.y, ybound2, ybound1);
+            rb.MovePosition(newpos);
+        }
+        
     }
 }
